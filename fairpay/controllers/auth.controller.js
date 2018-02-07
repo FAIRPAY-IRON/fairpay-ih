@@ -15,7 +15,8 @@ module.exports.doSignup = (req, res, next) => {
                     error: { email: 'Username already exists' }
                 });
             } else {
-                user = new User(req.body);
+                var body = _.pick(req.body, ['username', 'password', 'email']);
+                user = new User(body);
                 user.save()
                     .then(() => {
                         // req.flash('info', 'Successfully sign up, now you can login!');
@@ -50,21 +51,22 @@ module.exports.doLogin = (req, res, next) => {
             }
         });
     } else {
-        passport.authenticate('local-auth', (error, user, validation) => {
-            if (error) {
-                next(error);
-            } else if (!user) {
-                res.render('auth/login', { error: validation });
-            } else {
-                req.login(user, (error) => {
-                    if (error) {
-                        next(error);
-                    } else {
-                        res.redirect('/profile');
-                    }
-                });
-            }
-        })(req, res, next);
+        // passport.authenticate('local-auth', (error, user, validation) => {
+        //     if (error) {
+        //         next(error);
+        //     } else if (!user) {
+        //         res.render('auth/login', { error: validation });
+        //     } else {
+        //         req.login(user, (error) => {
+        //             if (error) {
+        //                 next(error);
+        //             } else {
+        //                 res.redirect('/profile');
+        //             }
+        //         });
+        //     }
+        // })(req, res, next);
+        res.redirect('/profile'); //this redirect will be removed
     }
 }
 

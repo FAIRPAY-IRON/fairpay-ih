@@ -1,9 +1,9 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const userController = require('../controllers/users.controller');
+const secure = require('../configs/passport.config');
 
-/* GET users listing. */
-router.get('/profile', function(req, res, next) {
-  res.render('users/profile');
-});
+router.get('/profile', secure.isAuthenticated, userController.profile);
+router.get('/users', secure.checkRole("ADMIN"), userController.list);
 
 module.exports = router;

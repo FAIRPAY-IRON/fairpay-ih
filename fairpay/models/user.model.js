@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const validator = require('validator');
 // const bcrypt = require('bcrypt');
 // const SALT_WORK_FACTOR = 10;
 
@@ -14,11 +15,18 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: [true, 'User needs a password']
+        required: [true, 'User needs a password'],
+        minlength: [8, 'Password must have at least 8 characters']
     },
     email: {
         type: String,
-        required: [true, 'User needs an email']
+        required: [true, 'User needs an email'],
+        trim: true,
+        unique: true,
+        validate: {
+            validator: validator.isEmail,
+            message: '{VALUE} is not a valid email'
+        }
     },
     social: {
         facebookId: String,
