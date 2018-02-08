@@ -4,15 +4,34 @@ const passport = require('passport');
 const _ = require('lodash');
 
 module.exports.signup = (req, res) => {
-    res.render('auth/signup');
+    res.render('auth/signup', {
+        flash: req.flash()
+    });
 };
 
 module.exports.doSignup = (req, res, next) => {
+    const username = req.body.username;
+    const email = req.body.email;
+    const password = req.body.password;
+    if (!email || !password || !username) {
+        req.flash('info', 'Something went wrong!');
+        res.render('auth/signup', {
+            user: {email : email},
+            flash: req.flash(),
+            error: {
+                email    : email   ? '' : 'Email is required',
+                password: password ? '' : 'Password is required',
+                username: username ? '' : 'Username is required'
+            }
+        });
+    }
     User.findOne({email: req.body.email})
         .then(user => {
             if (user != null) {
+                req.flash('info', 'Something went wrong!');
                 res.render('auth/signup', {
                     user: user,
+                    flash: req.flash(),
                     error: {email: 'Username already exists'}
                 });
             } else {
