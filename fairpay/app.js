@@ -1,4 +1,4 @@
-require('dotenv').config()
+// require('dotenv').config()
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -10,10 +10,10 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const passport = require('passport');
-const flash = require("connect-flash");
+// const flash = require("connect-flash");
 
 require('./configs/db.config');
-// require('./configs/passport.config').setup(passport);
+require('./configs/passport.config').setup(passport);
 
 const index = require('./routes/index.routes');
 const auth = require('./routes/auth.routes')
@@ -34,6 +34,22 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: 'Super Secret',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    secure: false,
+    httpOnly: true,
+    maxAge: 60 * 60 * 24 * 1000
+  },
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection,
+    ttl: 24 * 60 * 60
+  })
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', index);
 app.use('/', auth);
