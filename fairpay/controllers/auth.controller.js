@@ -20,7 +20,7 @@ module.exports.doSignup = (req, res, next) => {
                 user = new User(body);
                 user.save()
                     .then(() => {
-                        // req.flash('info', 'Successfully sign up, now you can login!');
+                        req.flash('info', 'Successfully sign up, now you can login!');
                         res.redirect('/login');
                     }).catch(error => {
                         if (error instanceof mongoose.Error.ValidationError) {
@@ -37,15 +37,19 @@ module.exports.doSignup = (req, res, next) => {
 };
 
 module.exports.login = (req, res) => {
-    res.render('auth/login');
+    res.render('auth/login', {
+        flash: req.flash()
+    });
 };
 
 module.exports.doLogin = (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
-    if (!email    || !password) {
+    if (!email || !password) {
+        req.flash('info', 'Something went wrong!');
         res.render('auth/login', {
             user: {email : email},
+            flash: req.flash(),
             error: {
                 email    : email   ? '' : 'Email is required',
                 password: password ? '' : 'Password is required'
@@ -69,9 +73,3 @@ module.exports.doLogin = (req, res, next) => {
         })(req, res, next);
     }
 };
-
-// module.exports.login = (req, res, next) => {
-//     res.render('auth/login', {
-//         flash: req.flash()
-//     });
-// }

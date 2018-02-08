@@ -1,14 +1,19 @@
 <div class="">
     <h3>Log in</h3>
 </div>
+<% if (typeof(flash) != 'udefined' && flash.info) { %>
+    <div class="">
+        <%= flash.info %>
+    </div>
+<% } %>
 <form class="" action="/login" method="post">
     <div class="">
         <label for="email">E-mail</label>
-        <input type="text" name="email" value="">
+        <input type="text" name="email" value="<%= typeof user != 'undefined' && user.email ? user.email : '' %>">
     </div>
     <div class="">
         <label for="password">Password</label>
-        <input type="password" name="password" value="">
+        <input type="password" name="password" value="<%= typeof user != 'undefined' && user.password ? user.password : '' %>">
     </div>
     <button type="submit" name="button">Log in</button>
 </form>
