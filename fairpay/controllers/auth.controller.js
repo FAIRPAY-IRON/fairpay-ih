@@ -57,7 +57,8 @@ module.exports.doSignup = (req, res, next) => {
 
 module.exports.login = (req, res) => {
     res.render('auth/login', {
-        flash: req.flash()
+        flash: req.flash(),
+        error: ''
     });
 };
 
@@ -79,7 +80,12 @@ module.exports.doLogin = (req, res, next) => {
             if (error) {
                 next(error);
             } else if (!user) {
-                res.render('auth/login', {error: validation});
+                req.flash('info', 'Something went wrong!');
+                res.render('auth/login', {
+                    error: validation,
+                    user: {email : email},
+                    flash: req.flash(),
+                });
             } else {
                 req.login(user, (error) => {
                     if (error) {
@@ -91,4 +97,10 @@ module.exports.doLogin = (req, res, next) => {
             }
         })(req, res, next);
     }
+};
+
+module.exports.logout = (req, res) => {
+    req.session.destroy(function () {
+      res.redirect('/'); //Inside a callback… bulletproof!
+    });
 };

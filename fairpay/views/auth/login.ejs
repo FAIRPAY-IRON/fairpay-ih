@@ -12,8 +12,21 @@
         <input type="text" name="email" value="<%= typeof user != 'undefined' && user.email ? user.email : '' %>">
     </div>
     <div class="">
+        <% if (typeof(error) != 'udefined' && error.email) { %>
+            <label class=""> <%= error.email %> </label>
+        <% } %>
+    </div>
+
+    <div class="">
         <label for="password">Password</label>
         <input type="password" name="password" value="<%= typeof user != 'undefined' && user.password ? user.password : '' %>">
     </div>
+    <div class="">
+        <% if (typeof(error) != 'udefined' && error.password) { %>
+            <label class=""> <%= error.password %> </label>
+        <% } %>
+    </div>
+
     <button type="submit" name="button">Log in</button>
 </form>
+<p>Dont have an account? <a href="/signup">Sign up!</a></p>
