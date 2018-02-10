@@ -1,0 +1,22 @@
+<div class="">
+    <h3>Edit profile</h3>
+</div>
+
+<form class="" action="/edit" method="post">
+    <div class="">
+        <label for="username">Name: </label>
+        <input type="text" name="username" value="<%= typeof user != 'undefined' && user.username ? user.username : '' %>">
+    </div>
+
+    <div class="">
+        <label for="picture">Image URL: </label>
+        <input type="text" size="100" name="picture" value="<%= typeof user != 'undefined' && user.picture ? user.picture : '' %>">
+    </div>
+
+    <div class="">
+        <label for="money">Add money: </label>
+        <input type="number" min="0" max="20" name="money" value="20">
+    </div>
+
+    <button type="submit" name="button">Save</button>
+</form>
