@@ -3,7 +3,7 @@ const User = require('../models/user.model');
 
 module.exports.profile = (req, res, next) => {
     res.render('users/profile');
-}
+};
 
 // module.exports.list = (req, res, next) => {
 //     User.find({})
