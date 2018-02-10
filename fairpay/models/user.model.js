@@ -1,4 +1,4 @@
-  const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcrypt');
 const SALT_WORK_FACTOR = 10;
@@ -31,6 +31,16 @@ const userSchema = new mongoose.Schema({
     social: {
         facebookId: String,
         googleId: String
+    },
+    money: {
+        type: Number,
+        required: [true, 'User needs money to bet'],
+    },
+    picture: {
+        type: String,
+      },
+    bets: {
+        type: Number,
     },
     role: {
         type: String,
