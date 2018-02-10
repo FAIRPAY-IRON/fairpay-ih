@@ -34,14 +34,16 @@ const userSchema = new mongoose.Schema({
     },
     money: {
         type: Number,
-        required: [true, 'User needs money to bet'],
+        default: 20
     },
     picture: {
         type: String,
+        default: 'http://africa.aidforum.org/images/speakers/Blank_Speaker_Image_9.png'
       },
-    bets: {
-        type: Number,
-    },
+    // bets: {
+    //     type: mongoose.Schema.Types.ObjectId,
+    //     ref: 'Bet'
+    // },
     role: {
         type: String,
         enum: [ROLE_GUEST, ROLE_ADMIN],

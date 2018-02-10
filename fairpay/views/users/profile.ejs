@@ -1,2 +1,23 @@
-<p>Welcome user</p>
+<p>Welcome <%= user.username %></p>
+
+<div class="">
+    <img src="<%= user.picture %>" alt="Profile image">
+</div>
+
+<div class="">
+    <h3><%= user.username %></h3>
+</div>
+
+<div class="">
+    <h4>Current money: <%= user.money %> $</h4>
+</div>
+
+<!-- <div class="">
+    <ul>
+        <% for(var i = 0; i < user.bets.length; i++) { %>
+            <li><%= user.bets[i].betname %></li>
+        <% } %>
+    </ul>
+</div> -->
+
 <button class="" type="button" name="logout"><a href="/logout">Logout</a></button>

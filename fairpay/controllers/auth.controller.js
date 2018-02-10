@@ -91,6 +91,7 @@ module.exports.doLogin = (req, res, next) => {
                     if (error) {
                         next(error);
                     } else {
+                        req.session.user = user;
                         res.redirect('/profile');
                     }
                 });
@@ -101,6 +102,6 @@ module.exports.doLogin = (req, res, next) => {
 
 module.exports.logout = (req, res) => {
     req.session.destroy(function () {
-      res.redirect('/'); //Inside a callback… bulletproof!
+      res.redirect('/');
     });
 };
