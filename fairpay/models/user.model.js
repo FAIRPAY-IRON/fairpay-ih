@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+  const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcrypt');
 const SALT_WORK_FACTOR = 10;
