@@ -1,8 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.brand-logo img {
+    width: 65px;
+    margin-left: 2vw;
+}
+
+#nav-mobile {
+    margin-right: 2vw;
+}
+
+#nav-mobile li {
+    letter-spacing: 5px;
+}
+
+#cover {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15vh;
+}
+
+#cover .welcome h3 {
+    text-align: center;
+}
+
+#cover .description {
+    width: 35%;
+    margin-top: 50px;
+}
+
+#cover .description p {
+    font-size: 25px;
+    text-align: justify;
 }

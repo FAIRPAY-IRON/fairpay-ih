@@ -19,6 +19,6 @@
         <label for="password">Password</label>
         <input type="password" name="password" value="<%= typeof user != 'undefined' && user.password ? user.password : '' %>">
     </div>
-    <button type="submit" name="button">Sign up</button>
+    <button type="submit" class="btn waves-effect waves-light deep-purple lighten-1" name="button">Sign up <i class="material-icons right">send</i></button>
 </form>
 <p>Already have an account? <a href="/login">Log in!</a></p>
