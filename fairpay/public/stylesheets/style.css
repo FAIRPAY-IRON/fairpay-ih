@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Kavivanar', cursive;
 }
 
 body {
@@ -8,7 +9,11 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #ff0000;
+}
+
+.btn a {
+    color: white;
 }
 
 .brand-logo img {
@@ -20,8 +25,10 @@ a {
     margin-right: 2vw;
 }
 
-#nav-mobile li {
+#nav-mobile li, #nav-mobile a {
     letter-spacing: 5px;
+    color: #ff0000;
+    font-size: 17px;
 }
 
 #cover {
@@ -42,4 +49,8 @@ a {
 #cover .description p {
     font-size: 25px;
     text-align: justify;
+}
+
+.form-logo {
+    margin-top: 100px;
 }
