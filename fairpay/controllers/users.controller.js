@@ -20,7 +20,7 @@ module.exports.doEdit = (req, res) => {
     const {
         username,
         picture
-    } = req.body
+    } = req.body;
     if (!picture || !username) {
         req.flash('info', 'Something went wrong!');
         res.render('auth/signup', {

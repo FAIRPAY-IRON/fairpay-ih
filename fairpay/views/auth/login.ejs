@@ -21,22 +21,22 @@
                 <div class="">
                     <% if (typeof(error) != 'udefined' && error.email) { %>
                         <label class=""> <%= error.email %> </label>
-                        <% } %>
-                    </div>
-                    
-                    <div class="input-field col s6 offset-s3">
-                        <i class="material-icons prefix">vpn_key</i>
-                        <label for="password">Password</label>
-                        <input type="password" name="password" value="<%= typeof user != 'undefined' && user.password ? user.password : '' %>">
-                    </div>
-                    <div class="input-field col s6 offset-s3">
-                        <% if (typeof(error) != 'udefined' && error.password) { %>
-                            <label class=""> <%= error.password %> </label>
-                            <% } %>
-                        </div>
-                        <button type="submit" class="btn waves-effect waves-light red z-depth-4 col s2 offset-s5" name="button">Log in <i class="material-icons right">send</i></button>
+                    <% } %>
+                </div>
+
+                <div class="input-field col s6 offset-s3">
+                    <i class="material-icons prefix">vpn_key</i>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" value="<%= typeof user != 'undefined' && user.password ? user.password : '' %>">
+                </div>
+                <div class="input-field col s6 offset-s3">
+                    <% if (typeof(error) != 'udefined' && error.password) { %>
+                        <label class=""> <%= error.password %> </label>
+                    <% } %>
+                </div>
+                <button type="submit" class="btn waves-effect waves-light red z-depth-4 col s2 offset-s5" name="button">Log in <i class="material-icons right">send</i></button>
             </div>
-                </form>
+        </form>
     </div>
     <div class="col s4 offset-s4 center">
         <hr>
