@@ -1,7 +1,7 @@
 <div class="row profile">
     <div class="col s4 offset-s4">
         <div class="center">
-            <img src="<%= user.picture %>" class="circle col s12 profile-img" alt="Profile image">
+            <img src="<%= user.picture %>" class="circle col s8 offset-s2 profile-img" alt="Profile image">
         </div>
 
         <div class="center">
@@ -16,9 +16,9 @@
 
     </div>
     <div class="center profile-btns col s6 offset-s3">
-        <button class="btn waves-effect waves-light blue z-depth-4" type="button" name="edit"><a href="/edit">Edit profile</a></button>
         <button class="btn waves-effect waves-light green z-depth-4" type="button" name="edit"><a href="/createbet">Create bet</a></button>
-        <button class="btn waves-effect waves-light yellow darken-3 z-depth-4" type="button" name="findbets"><a href="/findbets">Find bets</a></button>
+        <button class="btn waves-effect waves-light blue z-depth-4" type="button" name="findbets"><a href="/findbets">Find bets</a></button>
+        <button class="btn waves-effect waves-light yellow darken-3 z-depth-4" type="button" name="edit"><a href="/edit">Edit profile</a></button>
         <button class="btn waves-effect waves-light red z-depth-4" type="button" name="logout"><a href="/logout">Logout</a></button>
     </div>
 
@@ -28,8 +28,8 @@
         </a>
         <ul>
             <li><a href="/createbet" class="btn-floating green tooltipped" data-position="left" data-delay="50" data-tooltip="Create bet"><i class="material-icons">create</i></a></li>
-            <li><a href="/findbets" class="btn-floating yellow darken-3 tooltipped" data-position="left" data-delay="50" data-tooltip="Find bet"><i class="material-icons">search</i></a></li>
-            <li><a href="/edit" class="btn-floating blue tooltipped" data-position="left" data-delay="50" data-tooltip="Edit profile"><i class="material-icons">tune</i></a></li>
+            <li><a href="/findbets" class="btn-floating blue tooltipped" data-position="left" data-delay="50" data-tooltip="Find bet"><i class="material-icons">search</i></a></li>
+            <li><a href="/edit" class="btn-floating yellow darken-3 tooltipped" data-position="left" data-delay="50" data-tooltip="Edit profile"><i class="material-icons">tune</i></a></li>
             <li><a href="/logout" class="btn-floating red tooltipped" data-position="left" data-delay="50" data-tooltip="Logout"><i class="material-icons">exit_to_app</i></a></li>
         </ul>
     </div>
