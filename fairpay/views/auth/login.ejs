@@ -34,7 +34,19 @@
                         <label class=""> <%= error.password %> </label>
                     <% } %>
                 </div>
-                <button type="submit" class="btn waves-effect waves-light red z-depth-4 col s2 offset-s5" name="button">Log in <i class="material-icons right">send</i></button>
+                <div class="row">
+                    <button type="submit" class="btn waves-effect waves-light red z-depth-4 col s2 offset-s5" name="button">Login <i class="material-icons right">send</i></button>
+                </div>
+                <form class="" action="/auth/google" method="post">
+                    <div class="row">
+                        <button type="submit" class="btn waves-effect waves-light grey darken-1 col s2 offset-s5 z-depth-4" name="button">Login w/ Google<i class="fa fa-google right"></i></button>
+                    </div>
+                </form>
+                <form class="" action="#" method="post">
+                    <div class="row">
+                        <button type="submit" class="btn waves-effect waves-light blue darken-3 col s2 offset-s5 z-depth-4" name="button">Login w/ Facebook<i class="fa fa-facebook right"></i></button>
+                    </div>
+                </form>
             </div>
         </form>
     </div>
