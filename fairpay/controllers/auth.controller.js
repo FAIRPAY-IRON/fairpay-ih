@@ -101,6 +101,7 @@ module.exports.doLogin = (req, res, next) => {
 };
 
 module.exports.loginWithProviderCallback = (req, res, next) => {
+    console.log('Pasa por loginWithProviderCallback');
     passport.authenticate(`${req.params.provider}-auth`, (error, user) => {
         if (error) {
             next(error);

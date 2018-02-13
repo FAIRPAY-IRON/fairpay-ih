@@ -6,6 +6,10 @@ const betSchema = new mongoose.Schema({
         required: [true, 'Betname is required'],
         unique: true
     },
+    description: {
+        type: String,
+        required: [true, 'Description required']
+    },
     money: {
         type: Number,
         default: 0
@@ -13,6 +17,9 @@ const betSchema = new mongoose.Schema({
     users: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
+    },
+    location: {
+        type: String
     }
 }, {timestamps: true});
 
