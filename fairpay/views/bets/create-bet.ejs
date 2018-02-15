@@ -1,0 +1,65 @@
+<div class="row">
+    <div class="col s4 offset-s4 center">
+        <img class="form-logo" src="/images/burning-red-logo.png" width="160px" alt="logo">
+    </div>
+    <div class="col s4 offset-s4 center">
+        <h3>Create bet</h3>
+    </div>
+    <div class="row">
+        <form class="" action="/betform" method="post">
+            <div class="row">
+                <div class="input-field col s6 offset-s3">
+                    <i class="material-icons prefix">create</i>
+                    <label for="betName">Bet name</label>
+                    <input type="text" name="betname">
+                </div>
+                <div class="input-field col s6 offset-s3">
+                    <i class="material-icons prefix">description</i>
+                    <label for="description">Bet description</label>
+                    <input type="text" name="description">
+                </div>
+                <div class="input-field col s6 offset-s3">
+                    <i class="material-icons prefix">attach_money</i>
+                    <label for="money">Add money</label>
+                    <input type="text" name="money">
+                </div>
+                <div class="input-field col s6 offset-s3">
+                    <i class="material-icons prefix">child_care</i>
+                    <label for="players">Players</label>
+                    <input type="text" name="players">
+                </div>
+                <!-- <div class="input-field col s6 offset-s3">
+                    <i class="material-icons prefix">vpn_key</i>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" value="<%= typeof user != 'undefined' && user.password ? user.password : '' %>">
+                </div> -->
+                <!-- <div class="switch col offset-s3">
+                    <label>
+                        Hide
+                        <input type="checkbox">
+                        <span class="lever"></span>
+                        Show
+                    </label>
+                </div> -->
+            </div>
+            <div class="row">
+                <button type="submit" class="btn waves-effect waves-light red col s2 offset-s5 z-depth-4" name="button">Create<i class="material-icons right">play_arrow
+</i></button>
+            </div>
+            <!-- <form class="" action="#" method="post">
+                <div class="row">
+                    <button type="submit" class="btn waves-effect waves-light grey darken-1 col s2 offset-s5 z-depth-4" name="button">Signup with<i class="fa fa-google right"></i></button>
+                </div>
+            </form>
+            <form class="" action="#" method="post">
+                <div class="row">
+                    <button type="submit" class="btn waves-effect waves-light blue darken-3 col s2 offset-s5 z-depth-4" name="button">Signup with<i class="fa fa-facebook right"></i></button>
+                </div>
+            </form>
+        </form> -->
+    </div>
+    <div class="col s4 offset-s4 center">
+        <hr>
+        <p>Manage your <a href="/profile">profile</a></p>
+    </div>
+</div>
