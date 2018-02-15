@@ -8,9 +8,14 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-#map {
+.finder-map {
         height: 90vh;
         margin-top: 2vh;
+}
+
+.set-bet-map {
+    height: 30vh;
+    margin-top: 2vh;
 }
 
 a {

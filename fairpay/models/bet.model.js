@@ -19,9 +19,11 @@ const betSchema = new mongoose.Schema({
         ref: 'User'
     },
     location: {
-        type: String
-    }
-}, {timestamps: true});
+        type: {type: String},
+        coordinates: [Number]
+}, timestamps: true});
+
+betSchema.index({location: '2dsphere'});
 
 const Bet = mongoose.model('Bet', betSchema);
 module.exports = Bet;

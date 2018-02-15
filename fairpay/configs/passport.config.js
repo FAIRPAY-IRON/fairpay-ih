@@ -98,26 +98,36 @@ module.exports.checkRole = (role) => {
 
 function authenticateOAuthUser(accessToken, refreshToken, profile, next) {
     let provider;
+    let email;
+    let name;
+    let picture;
     if (profile.provider === FB_PROVIDER) {
         provider = 'facebookId';
+        // const email =
+        // const name =
+        // const picture =
     } else if (profile.provider === GOOGLE_PROVIDER) {
         provider = 'googleId';
+        email = profile.emails[0].value;
+        name = profile.displayName;
+        picture = profile.photos[0].value;
     } else {
         next();
     }
+
     User.findOne({[`social.${provider}`]: profile.id})
         .then(user => {
             if (user) {
                 next(null, user);
             } else {
-                const email = profile.emails ? profile.emails[0].value : null;
                 user = new User({
-                    username: email || DEFAULT_USERNAME,
+                    username: name,
                     email: email,
+                    picture: picture,
                     password: Math.random().toString(36).slice(-8), // FIXME: insecure, use secure random seed
                     social: {
                         [provider]: profile.id
-                    }
+                    },
                 });
 
                 user.save()
