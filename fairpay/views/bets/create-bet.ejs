@@ -6,7 +6,7 @@
         <h3>Create bet</h3>
     </div>
     <div class="row">
-        <form class="col s12" id="create-bet" action="/betform" method="post">
+        <form class="col s12" id="create-bet" action="/createbet" method="post">
             <div class="row col s6">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">create</i>
@@ -26,7 +26,7 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix">add_location</i>
                     <label for="location">Location</label>
-                    <input type="text" name="location" value="<%= typeof bet != 'undefined' && bet.location ? bet.location : '' %>">
+                    <input type="text" id="coordsField" name="location" value="">
                 </div>
             </div>
             <div class="row col s6">
@@ -43,3 +43,21 @@
         <p>Manage your <a href="/profile">profile</a></p>
     </div>
 </div>
+
+<script type="text/javascript">
+    initMap();
+
+    google.maps.event.addListener(map, 'click', function(event){
+        // marker.setMap(null);
+        addMarker(map, event.latLng.toJSON());
+        $("input#coordsField").val(event.latLng.lat().toFixed(4) + ', ' + event.latLng.lng().toFixed(4));
+    });
+
+    function addMarker(map, coords){
+        new google.maps.Marker({
+            position: coords,
+            map: map
+        });
+    }
+
+</script>

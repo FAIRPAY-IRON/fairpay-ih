@@ -8,8 +8,12 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
         <link rel="stylesheet" href="/stylesheets/style.css">
         <link href="https://fonts.googleapis.com/css?family=Kavivanar" rel="stylesheet">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
         crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmEs15WbxscjT5wAXL3r5Cw5w82H6iNp4" async defer></script>
+        <script type="text/javascript" src="/javascripts/googlemaps.js"></script>
     </head>
     <body class="grey lighten-4">
         <nav class="nav-bar">
@@ -26,61 +30,6 @@
         <div class="container">
             <%- body -%>
         </div>
-
-        <script>
-            // const mongoose = require('mongoose');
-            // const Bet = require('../models/bet.model');
-
-            var map;
-            var markers = [];
-            function initMap() {
-                let options = {
-                    zoom: 12,
-                    center: new google.maps.LatLng(40.4167,-3.70325)
-                }
-                map = new google.maps.Map(document.getElementById('map'), options);
-            }
-
-            // function findAndPlace(){
-            //     Bet.find()
-            //         .then(bets => {
-            //             bets.forEach(bet => {
-            //                 markers.push(bet.location);
-            //             })
-            //         })
-            //         .else(e => {
-            //             next(e);
-            //         })
-            //
-            //     for(let i = 0; i < markers.length; i++){
-            //         addMarker(markers[i]);
-            //     }
-            // }
-            //
-            // function addMarker(coords){
-            //     position: coords,
-            //     map: map
-            // }
-
-            // window.eqfeed_callback = function(results) {
-            //   for (var i = 0; i < results.features.length; i++) {
-            //     var coords = results.features[i].geometry.coordinates;
-            //     var latLng = new google.maps.LatLng(coords[1],coords[0]);
-            //     var marker = new google.maps.Marker({
-            //       position: latLng,
-            //       map: map
-            //     });
-            //   }
-            // };
-
-            google.maps.event.addListener(map, 'click', function(event){
-                addMarker({coords: event.latLng});
-            })
-        </script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfB-KaiN3lTw450qk32BXDJaVIzmJ9CZk&callback=initMap"
-        async defer></script>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
     </body>
 </html>

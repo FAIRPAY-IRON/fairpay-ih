@@ -6,6 +6,8 @@ router.get('/findbets', betsController.findBets);
 
 router.get('/createbet', betsController.createBet);
 
+router.post('/createbet', betsController.saveBet);
+
 router.get('/bet', betsController.showBet);
 
 module.exports = router;
