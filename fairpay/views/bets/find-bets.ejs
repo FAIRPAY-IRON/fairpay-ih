@@ -1,3 +1,20 @@
 <div>
     <div id="map" class="finder-map"></div>
 </div>
+
+<script type="text/javascript">
+    initMap();
+
+    var bets = <%- JSON.stringify(bets) %>;
+
+    bets.forEach(bet => {
+        addMarker(map, {lat: bet.location.coordinates[0], lng: bet.location.coordinates[1]});
+    })
+
+    function addMarker(map, coords){
+        new google.maps.Marker({
+            position: coords,
+            map: map
+        });
+    }
+</script>

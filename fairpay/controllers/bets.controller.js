@@ -2,7 +2,12 @@ const mongoose = require('mongoose');
 const Bet = require('../models/bet.model');
 
 module.exports.findBets = (req, res) => {
-    res.render('bets/find-bets');
+    Bet.find()
+        .then(bets => {
+            res.render('bets/find-bets', {bets});
+        }).catch(() => {
+            res.render('bets/find-bets');
+        });
 };
 
 module.exports.createBet = (req, res) => {
@@ -19,8 +24,10 @@ module.exports.saveBet = (req, res, next) => {
     const description = req.body.description;
     const money = req.body.money;
     const userId = req.user._id;
-
-    // const location = req.body.location;
+    const location = {
+     type: 'Point',
+     coordinates: [req.body.location.split(',')[0], req.body.location.split(',')[1]]
+ };
 
     if (!description || !money || !betname) {
         req.flash('info', 'Something went wrong!');
@@ -38,17 +45,18 @@ module.exports.saveBet = (req, res, next) => {
         betname,
         description,
         money,
-        users: userId
+        users: userId,
+        location
     };
 
     bet = new Bet(newBet);
 
     bet.save()
-        .then(() => {
-            res.redirect('/bet');
+        .then(bet => {
+            res.render('bets/bet', {bet});
         }).catch(error => {
             if (error instanceof mongoose.Error.ValidationError) {
-                res.render('auth/signup', {
+                res.render('bets/create-bet', {
                     bet: bet,
                     error: error.errors
                 });
