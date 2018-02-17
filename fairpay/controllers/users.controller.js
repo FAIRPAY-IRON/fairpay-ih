@@ -63,12 +63,3 @@ module.exports.doEdit = (req, res) => {
             });
     }
 };
-// module.exports.list = (req, res, next) => {
-//     User.find({})
-//         .then(users => {
-//             res.render('user/list', {
-//                 users: users
-//             });
-//         })
-//         .catch(error => next(error));
-// }

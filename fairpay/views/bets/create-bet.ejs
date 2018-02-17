@@ -6,46 +6,35 @@
         <h3>Create bet</h3>
     </div>
     <div class="row">
-        <form class="" action="/betform" method="post">
-            <div class="row">
-                <div class="input-field col s6 offset-s3">
+        <form class="col s12" id="create-bet" action="/betform" method="post">
+            <div class="row col s6">
+                <div class="input-field col s12">
                     <i class="material-icons prefix">create</i>
                     <label for="betName">Bet name</label>
                     <input type="text" name="betname">
                 </div>
-                <div class="input-field col s6 offset-s3">
+                <div class="input-field col s12">
                     <i class="material-icons prefix">description</i>
                     <label for="description">Bet description</label>
                     <input type="text" name="description">
                 </div>
-                <div class="input-field col s6 offset-s3">
+                <div class="input-field col s12">
                     <i class="material-icons prefix">attach_money</i>
                     <label for="money">Add money</label>
-                    <input type="text" name="money">
+                    <input type="number" min="0" max="20" name="money" value="20">
                 </div>
-                <div class="input-field col s6 offset-s3">
-                    <i class="material-icons prefix">child_care</i>
-                    <label for="players">Players</label>
-                    <input type="text" name="players">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">add_location</i>
+                    <label for="location">Location</label>
+                    <input type="text" name="location" value="<%= typeof bet != 'undefined' && bet.location ? bet.location : '' %>">
                 </div>
-                <div class="">
+            </div>
+            <div class="row col s6">
+                <div class="input-field col s12">
                     <div id="map" class="set-bet-map"></div>
                 </div>
-                <!-- <div class="input-field col s6 offset-s3">
-                    <i class="material-icons prefix">vpn_key</i>
-                    <label for="password">Password</label>
-                    <input type="password" name="password" value="<%= typeof user != 'undefined' && user.password ? user.password : '' %>">
-                </div> -->
-                <!-- <div class="switch col offset-s3">
-                    <label>
-                        Hide
-                        <input type="checkbox">
-                        <span class="lever"></span>
-                        Show
-                    </label>
-                </div> -->
             </div>
-            <div class="row">
+            <div class="row col s12">
                 <button type="submit" class="btn waves-effect waves-light red col s2 offset-s5 z-depth-4" name="button">Create<i class="material-icons right">play_arrow</i></button>
             </div>
     </div>

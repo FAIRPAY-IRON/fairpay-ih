@@ -77,4 +77,21 @@ a {
 
 .profile-img {
     margin-bottom: 2vh;
+    overflow: hidden;
+    width: 10px;
+}
+
+#create-bet {
+    /* display: flex;
+    justify-content: space-between; */
+}
+
+#create-bet .row:first-child {
+}
+
+#create-bet .row:nth-child(2) {
+}
+
+.set-bet-map {
+    margin: 0;
 }

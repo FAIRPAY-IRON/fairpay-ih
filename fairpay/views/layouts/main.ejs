@@ -28,33 +28,59 @@
         </div>
 
         <script>
-          var map;
-          function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 12,
-              center: new google.maps.LatLng(40.4167,-3.70325),
-              mapTypeId: 'terrain'
-            });
+            // const mongoose = require('mongoose');
+            // const Bet = require('../models/bet.model');
 
-            // var script = document.createElement('script');
-            // script.src = 'https://developers.google.com/maps/documentation/javascript/examples/json/earthquake_GeoJSONP.js';
-            // document.getElementsByTagName('head')[0].appendChild(script);
-     }
+            var map;
+            var markers = [];
+            function initMap() {
+                let options = {
+                    zoom: 12,
+                    center: new google.maps.LatLng(40.4167,-3.70325)
+                }
+                map = new google.maps.Map(document.getElementById('map'), options);
+            }
 
-      window.eqfeed_callback = function(results) {
-        for (var i = 0; i < results.features.length; i++) {
-          var coords = results.features[i].geometry.coordinates;
-          var latLng = new google.maps.LatLng(coords[1],coords[0]);
-          var marker = new google.maps.Marker({
-            position: latLng,
-            map: map
-          });
-        }
-      }
-    </script>
+            // function findAndPlace(){
+            //     Bet.find()
+            //         .then(bets => {
+            //             bets.forEach(bet => {
+            //                 markers.push(bet.location);
+            //             })
+            //         })
+            //         .else(e => {
+            //             next(e);
+            //         })
+            //
+            //     for(let i = 0; i < markers.length; i++){
+            //         addMarker(markers[i]);
+            //     }
+            // }
+            //
+            // function addMarker(coords){
+            //     position: coords,
+            //     map: map
+            // }
+
+            // window.eqfeed_callback = function(results) {
+            //   for (var i = 0; i < results.features.length; i++) {
+            //     var coords = results.features[i].geometry.coordinates;
+            //     var latLng = new google.maps.LatLng(coords[1],coords[0]);
+            //     var marker = new google.maps.Marker({
+            //       position: latLng,
+            //       map: map
+            //     });
+            //   }
+            // };
+
+            google.maps.event.addListener(map, 'click', function(event){
+                addMarker({coords: event.latLng});
+            })
+        </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfB-KaiN3lTw450qk32BXDJaVIzmJ9CZk&callback=initMap"
         async defer></script>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
     </body>
 </html>

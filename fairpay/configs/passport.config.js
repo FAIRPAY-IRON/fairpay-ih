@@ -1,14 +1,12 @@
 const User = require('../models/user.model');
 const LocalStrategy = require('passport-local').Strategy;
-// const FBStrategy = require('passport-facebook').Strategy;
+const FBStrategy = require('passport-facebook').Strategy;
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-//
-const DEFAULT_USERNAME = 'Anonymous Coward';
-//
-// const FB_CLIENT_ID = process.env.FB_CLIENT_ID || '';
-// const FB_CLIENT_SECRET = process.env.FB_CLIENT_SECRET || '';
-// const FB_CB_URL = '/auth/fb/cb';
-//
+
+const FB_CLIENT_ID = process.env.FB_CLIENT_ID || '814113262107529';
+const FB_CLIENT_SECRET = process.env.FB_CLIENT_SECRET || '57f7fa2ef3a1ef30f270d96939f3e2f7';
+const FB_CB_URL = '/auth/fb/cb';
+
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID ||
     '387291381034-jvfb284fkvnkltau3pc0f3lr7a3sur51.apps.googleusercontent.com';
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET ||
@@ -54,12 +52,12 @@ module.exports.setup = (passport) => {
             })
             .catch(error => next(error));
     }));
-    // passport.use('fb-auth', new FBStrategy({
-    //     clientID: FB_CLIENT_ID,
-    //     clientSecret: FB_CLIENT_SECRET,
-    //     callbackURL: FB_CB_URL,
-    //     profileFields: ['id', 'emails']
-    // }, authenticateOAuthUser));
+    passport.use('fb-auth', new FBStrategy({
+        clientID: FB_CLIENT_ID,
+        clientSecret: FB_CLIENT_SECRET,
+        callbackURL: FB_CB_URL,
+        profileFields: ['id', 'emails']
+    }, authenticateOAuthUser));
 
     passport.use('google-auth', new GoogleStrategy({
         clientID: GOOGLE_CLIENT_ID,
@@ -103,8 +101,8 @@ function authenticateOAuthUser(accessToken, refreshToken, profile, next) {
     let picture;
     if (profile.provider === FB_PROVIDER) {
         provider = 'facebookId';
-        // const email =
-        // const name =
+        email = profile.emails[0].value;
+        name = profile.emails[0].value;
         // const picture =
     } else if (profile.provider === GOOGLE_PROVIDER) {
         provider = 'googleId';
