@@ -95,3 +95,15 @@ a {
 .set-bet-map {
     margin: 0;
 }
+
+.bet-header {
+    margin-top: 5vh;
+}
+
+.bet-description {
+    margin-bottom: 10vh;
+}
+
+.hometeam_score, .awayteam_score {
+    color: red;
+}

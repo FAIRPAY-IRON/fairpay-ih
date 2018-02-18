@@ -1,19 +1,10 @@
 <div class="row">
-    <div class="bet-header">
-        <h2> <%=  %>Title </h2>
+    <div class="bet-header center">
+        <h2> <%= teamsObj[0].country_name %> </h2>
+        <h5> - <%= teamsObj[0].league_name %> - </h5>
     </div>
-    <div id="bet-live-result">
-        <div id="left-result">
-            <h1>0</h1>
-        </div>
-        <div class="">
-            <h1>:</h1>
-        </div>
-        <div id="right-result">
-            <h1>0</h1>
-        </div>
-    </div>
-    <div class="bet-description">
+
+    <div class="bet-description center">
         <p>
            Augue interdum velit euismod in pellentesque.
            Pretium aenean pharetra magna ac placerat vestibulum.
@@ -21,17 +12,56 @@
            Ornare suspendisse sed nisi lacus sed.
         </p>
     </div>
-    <div class="bet-players">
-        <div class="left-player">
-            <h5>Cesar</h5>
-            <h6>10 $</h6>
-        </div>
-        <div class="right-player">
-            <h5>Marco</h5>
-            <h6>10 $</h6>
+
+    <div id="bet-live-result" class="col s12">
+        <div class="row">
+            <div id="left-result" class="col s4 center">
+                <div class="hometeam_name">
+                    <h4><%= eventsObj[0].match_hometeam_name %></h4>
+                </div>
+                <hr>
+                <h1 class="hometeam_score"><%= eventsObj[0].match_hometeam_score %></h1>
+                <hr>
+                <div class="left-player">
+                    <h5>Cesar</h5>
+                    <h6>10 $</h6>
+                </div>
+            </div>
+            <div class="col s4 center">
+                <h1 style="margin-top: 100px;">:</h1>
+            </div>
+            <div id="right-result" class="col s4 center">
+                <div class="awayteam_name">
+                    <h4><%= eventsObj[0].match_awayteam_name %></h4>
+                </div>
+                <hr>
+                <h1 class="awayteam_score"><%= eventsObj[0].match_awayteam_score %></h1>
+                <hr>
+                <div class="right-player">
+                    <h5>???</h5>
+                    <h6>??? $</h6>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="bet-location">
-        <p>Mapa</p>
+
+    <div class="row col s6 offset-s3">
+        <div class="input-field col s12">
+            <div id="map" class="bet-map"></div>
+        </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    initMap();
+
+    // addMarker(map, {lat: , lng: }, 'Title');
+    //
+    // function addMarker(map, coords, title){
+    //     new google.maps.Marker({
+    //         position: coords,
+    //         map: map,
+    //         title: title
+    //     });
+    // }
+</script>

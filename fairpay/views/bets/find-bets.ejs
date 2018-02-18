@@ -7,14 +7,16 @@
 
     var bets = <%- JSON.stringify(bets) %>;
 
+
     bets.forEach(bet => {
-        addMarker(map, {lat: bet.location.coordinates[0], lng: bet.location.coordinates[1]});
+        addMarker(map, {lat: bet.location.coordinates[0], lng: bet.location.coordinates[1]}, bet.betname);
     })
 
-    function addMarker(map, coords){
+    function addMarker(map, coords, title){
         new google.maps.Marker({
             position: coords,
-            map: map
+            map: map,
+            title: title
         });
     }
 </script>

@@ -1,15 +1,12 @@
-// const mongoose = require('mongoose');
-// const Bet = require('../models/bet.model');
-
 var map;
-    function initMap() {
-        var options = {
-            zoom: 12,
-            center: new google.maps.LatLng(40.4167,-3.70325)
-        };
+function initMap() {
+    var options = {
+        zoom: 12,
+        center: new google.maps.LatLng(40.4167,-3.70325)
+    };
 
-        map = new google.maps.Map(document.getElementById('map'), options);
-    }
+    map = new google.maps.Map(document.getElementById('map'), options);
+}
 
 // window.eqfeed_callback = function(results) {
 //   for (var i = 0; i < results.features.length; i++) {

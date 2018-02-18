@@ -10,4 +10,6 @@ router.post('/createbet', betsController.saveBet);
 
 router.get('/bet', betsController.showBet);
 
+router.get('/odds', betsController.odds);
+
 module.exports = router;

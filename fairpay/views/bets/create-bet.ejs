@@ -10,8 +10,23 @@
             <div class="row col s6">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">create</i>
-                    <label for="betName">Bet name</label>
-                    <input type="text" name="betname">
+                    <select>
+                      <optgroup label="Netherlands - Eredivisie">
+                          <% for(let i = 0; i < eventsObj.length; i++) { %>
+                                <% if(eventsObj[i].country_name == 'Netherlands') { %>
+                                    <option value="1"><%= eventsObj[i].match_hometeam_name %> - <%= eventsObj[i].match_awayteam_name %></option>
+                                <% } %>
+                          <% } %>
+                      </optgroup>
+                      <optgroup label="Turkey - Super Lig">
+                          <% for(let i = 0; i < eventsObj.length; i++) { %>
+                                <% if(eventsObj[i].country_name == 'Turkey') { %>
+                                    <option value="1"><%= eventsObj[i].match_hometeam_name %> - <%= eventsObj[i].match_awayteam_name %></option>
+                                <% } %>
+                          <% } %>
+                      </optgroup>
+                    </select>
+                    <label>Select bet</label>
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">description</i>
@@ -25,7 +40,7 @@
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">add_location</i>
-                    <label for="location">Location</label>
+                    <label for="location">Meeting point</label>
                     <input type="text" id="coordsField" name="location" value="">
                 </div>
             </div>
@@ -46,6 +61,10 @@
 
 <script type="text/javascript">
     initMap();
+
+    $(document).ready(function() {
+        $('select').material_select();
+    });
 
     google.maps.event.addListener(map, 'click', function(event){
         // marker.setMap(null);
