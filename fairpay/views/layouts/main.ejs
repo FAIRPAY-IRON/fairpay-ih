@@ -24,6 +24,10 @@
                     <li><a href="/login">Log-in</a></li>
                     <li><a href="/odds">Odds</a></li>
                     <li><a href="#">About-us</a></li>
+                    <% if(user) { %>
+                        <li id="userNavBtn"><a href="/profile"><%= user.username %> </a></li>
+                        <img src="<%= user.picture %>" class="circle" alt="">
+                    <% } %>
                 </ul>
             </div>
         </nav>

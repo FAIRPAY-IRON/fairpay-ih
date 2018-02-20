@@ -56,7 +56,7 @@ module.exports.setup = (passport) => {
         clientID: FB_CLIENT_ID,
         clientSecret: FB_CLIENT_SECRET,
         callbackURL: FB_CB_URL,
-        profileFields: ['id', 'emails']
+        profileFields: ['id', 'emails', 'photos', 'name']
     }, authenticateOAuthUser));
 
     passport.use('google-auth', new GoogleStrategy({
@@ -102,8 +102,8 @@ function authenticateOAuthUser(accessToken, refreshToken, profile, next) {
     if (profile.provider === FB_PROVIDER) {
         provider = 'facebookId';
         email = profile.emails[0].value;
-        name = profile.emails[0].value;
-        // const picture =
+        name = profile.name.familyName;
+        picture = profile.photos[0].value;
     } else if (profile.provider === GOOGLE_PROVIDER) {
         provider = 'googleId';
         email = profile.emails[0].value;

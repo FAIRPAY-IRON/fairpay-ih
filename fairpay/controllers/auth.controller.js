@@ -122,7 +122,7 @@ module.exports.logout = (req, res, next) => {
             next(error);
         } else {
             req.logout();
-            res.redirect('/');
+            res.redirect('/login');
         }
     });
 };

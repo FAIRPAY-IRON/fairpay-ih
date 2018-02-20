@@ -14,6 +14,7 @@ const flash = require('connect-flash');
 
 require('./configs/db.config');
 require('./configs/passport.config').setup(passport);
+require('./configs/paypal.config');
 
 const index = require('./routes/index.routes');
 const auth = require('./routes/auth.routes');
