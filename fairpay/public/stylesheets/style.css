@@ -133,3 +133,7 @@ a {
 .checkout-header {
     margin: 10vh auto;
 }
+
+#add-money-form {
+    margin-top: 10vh;
+}

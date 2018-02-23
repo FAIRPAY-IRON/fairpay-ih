@@ -10,18 +10,18 @@
             <div class="row col s6">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">create</i>
-                    <select>
+                    <select name='match' id="match">
                       <optgroup label="Netherlands - Eredivisie">
                           <% for(let i = 0; i < eventsObj.length; i++) { %>
                                 <% if(eventsObj[i].country_name == 'Netherlands') { %>
-                                    <option value="1"><%= eventsObj[i].match_hometeam_name %> - <%= eventsObj[i].match_awayteam_name %></option>
+                                    <option value="<%= eventsObj[i].match_id %>"><%= eventsObj[i].match_hometeam_name %> - <%= eventsObj[i].match_awayteam_name %></option>
                                 <% } %>
                           <% } %>
                       </optgroup>
                       <optgroup label="Turkey - Super Lig">
                           <% for(let i = 0; i < eventsObj.length; i++) { %>
                                 <% if(eventsObj[i].country_name == 'Turkey') { %>
-                                    <option value="1"><%= eventsObj[i].match_hometeam_name %> - <%= eventsObj[i].match_awayteam_name %></option>
+                                    <option value="<%= eventsObj[i].match_id %>"><%= eventsObj[i].match_hometeam_name %> - <%= eventsObj[i].match_awayteam_name %></option>
                                 <% } %>
                           <% } %>
                       </optgroup>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">attach_money</i>
-                    <label for="money">Add money</label>
+                    <label for="money">Money to bet</label>
                     <input type="number" min="0" max="20" name="money" value="20">
                 </div>
                 <div class="input-field col s12">

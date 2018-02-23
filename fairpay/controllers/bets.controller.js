@@ -55,6 +55,7 @@ module.exports.findBets = (req, res) => {
 
 module.exports.createBet = (req, res) => {
     res.render('bets/create-bet', {eventsObj});
+    console.log(eventsObj[0]);
 };
 
 module.exports.showBet = (req, res) => {
@@ -63,23 +64,31 @@ module.exports.showBet = (req, res) => {
 
 module.exports.saveBet = (req, res, next) => {
 
-    const betname = req.body.betname.value;
+    console.log(req.body);
     const description = req.body.description;
     const money = req.body.money;
     const userId = req.user._id;
+    const betId = req.body.match;
+    var betname = '';
+    var evnt;
+    eventsObj.forEach(event => {
+        if (event.match_id === betId) {
+            betname = `${event.match_hometeam_name} vs ${event.match_awayteam_name}`;
+            evnt = event;
+        }
+    });
     const location = {
      type: 'Point',
      coordinates: [req.body.location.split(',')[0], req.body.location.split(',')[1]]
  };
 
-    if (!description || !money || !betname) {
+    if (!description || !money) {
         req.flash('info', 'Something went wrong!');
         res.redirect('bets/create-bet', {
             flash: req.flash(),
             error: {
                 description    : description   ? '' : 'Description is required',
                 money: money ? '' : 'Money is required',
-                betname: betname ? '' : 'Betname is required',
             }
         });
     }
@@ -96,7 +105,7 @@ module.exports.saveBet = (req, res, next) => {
 
     bet.save()
         .then(bet => {
-            res.render('bets/bet', {bet});
+            res.render('bets/bet', {bet, evnt, teamsObj, user: req.user});
         }).catch(error => {
             if (error instanceof mongoose.Error.ValidationError) {
                 res.render('bets/create-bet', {

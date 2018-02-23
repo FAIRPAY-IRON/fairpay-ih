@@ -10,6 +10,11 @@ router.get('/profile', usersController.profile);
 router.get('/edit', usersController.edit);
 router.post('/edit', usersController.doEdit);
 
-router.get('/checkout', checkoutController.checkout);
+router.get('/addMoney', checkoutController.checkout);
+
+router.post('/pay', checkoutController.pay);
+
+router.get('/succes', checkoutController.succes);
+router.get('/cancel', checkoutController.cancel);
 
 module.exports = router;

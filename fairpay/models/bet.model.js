@@ -2,9 +2,7 @@ const mongoose = require('mongoose');
 
 const betSchema = new mongoose.Schema({
     betname: {
-        type: String,
-        required: [true, 'Betname is required'],
-        unique: true
+        type: String
     },
     description: {
         type: String,

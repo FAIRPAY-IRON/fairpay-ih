@@ -1,15 +1,12 @@
 <div class="row">
     <div class="bet-header center">
-        <h2> <%= teamsObj[0].country_name %> </h2>
-        <h5> - <%= teamsObj[0].league_name %> - </h5>
+        <h2> <%= evnt.country_name %> </h2>
+        <h5> - <%= evnt.league_name %> - </h5>
     </div>
 
     <div class="bet-description center">
         <p>
-           Augue interdum velit euismod in pellentesque.
-           Pretium aenean pharetra magna ac placerat vestibulum.
-           Vitae sapien pellentesque habitant morbi tristique.
-           Ornare suspendisse sed nisi lacus sed.
+           <%= bet.description %>
         </p>
     </div>
 
@@ -17,14 +14,14 @@
         <div class="row">
             <div id="left-result" class="col s4 center">
                 <div class="hometeam_name">
-                    <h4><%= eventsObj[0].match_hometeam_name %></h4>
+                    <h4><%= evnt.match_hometeam_name %></h4>
                 </div>
                 <hr>
-                <h1 class="hometeam_score"><%= eventsObj[0].match_hometeam_score %></h1>
+                <h1 class="hometeam_score"><%= evnt.match_hometeam_score %></h1>
                 <hr>
                 <div class="left-player">
-                    <h5>Cesar</h5>
-                    <h6>10 $</h6>
+                    <h5><%= user.username %></h5>
+                    <h6><%= user.money %> $</h6>
                 </div>
             </div>
             <div class="col s4 center">
@@ -32,10 +29,10 @@
             </div>
             <div id="right-result" class="col s4 center">
                 <div class="awayteam_name">
-                    <h4><%= eventsObj[0].match_awayteam_name %></h4>
+                    <h4><%= evnt.match_awayteam_name %></h4>
                 </div>
                 <hr>
-                <h1 class="awayteam_score"><%= eventsObj[0].match_awayteam_score %></h1>
+                <h1 class="awayteam_score"><%= evnt.match_awayteam_score %></h1>
                 <hr>
                 <div class="right-player">
                     <h5>???</h5>
@@ -54,14 +51,4 @@
 
 <script type="text/javascript">
     initMap();
-
-    // addMarker(map, {lat: , lng: }, 'Title');
-    //
-    // function addMarker(map, coords, title){
-    //     new google.maps.Marker({
-    //         position: coords,
-    //         map: map,
-    //         title: title
-    //     });
-    // }
 </script>
