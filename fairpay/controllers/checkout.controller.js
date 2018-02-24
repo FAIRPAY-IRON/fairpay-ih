@@ -40,8 +40,6 @@ module.exports.pay = (req, res) => {
                 if (payment.links[i].rel === 'approval_url') {
                     res.redirect(payment.links[i].href);
                     break;
-                    console.log('Create Payment Response');
-                    console.log(payment);
                 }
             }
         }
