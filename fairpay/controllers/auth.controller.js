@@ -91,6 +91,7 @@ module.exports.doLogin = (req, res, next) => {
                     if (error) {
                         next(error);
                     } else {
+                        req.session.user = user;
                         res.redirect('/profile');
                     }
                 });
@@ -99,8 +100,29 @@ module.exports.doLogin = (req, res, next) => {
     }
 };
 
-module.exports.logout = (req, res) => {
-    req.session.destroy(function () {
-      res.redirect('/'); //Inside a callback… bulletproof!
+module.exports.loginWithProviderCallback = (req, res, next) => {
+    passport.authenticate(`${req.params.provider}-auth`, (error, user) => {
+        if (error) {
+            next(error);
+        } else {
+            req.login(user, (error) => {
+                if (error) {
+                    next(error);
+                } else {
+                    res.redirect('/profile');
+                }
+            });
+        }
+    })(req, res, next);
+};
+
+module.exports.logout = (req, res, next) => {
+    req.session.destroy(error => {
+        if (error) {
+            next(error);
+        } else {
+            req.logout();
+            res.redirect('/login');
+        }
     });
 };

@@ -1,0 +1,82 @@
+<div class="row">
+    <div class="col s4 offset-s4 center">
+        <img class="form-logo" src="/images/burning-red-logo.png" width="160px" alt="logo">
+    </div>
+    <div class="col s4 offset-s4 center">
+        <h3>Create bet</h3>
+    </div>
+    <div class="row">
+        <form class="col s12" id="create-bet" action="/createbet" method="post">
+            <div class="row col s6">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">create</i>
+                    <select name='match' id="match">
+                      <optgroup label="Netherlands - Eredivisie">
+                          <% for(let i = 0; i < eventsObj.length; i++) { %>
+                                <% if(eventsObj[i].country_name == 'Netherlands') { %>
+                                    <option value="<%= eventsObj[i].match_id %>"><%= eventsObj[i].match_hometeam_name %> - <%= eventsObj[i].match_awayteam_name %></option>
+                                <% } %>
+                          <% } %>
+                      </optgroup>
+                      <optgroup label="Turkey - Super Lig">
+                          <% for(let i = 0; i < eventsObj.length; i++) { %>
+                                <% if(eventsObj[i].country_name == 'Turkey') { %>
+                                    <option value="<%= eventsObj[i].match_id %>"><%= eventsObj[i].match_hometeam_name %> - <%= eventsObj[i].match_awayteam_name %></option>
+                                <% } %>
+                          <% } %>
+                      </optgroup>
+                    </select>
+                    <label>Select bet</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">description</i>
+                    <label for="description">Bet description</label>
+                    <input type="text" name="description">
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">attach_money</i>
+                    <label for="money">Money to bet</label>
+                    <input type="number" min="0" max="20" name="money" value="20">
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">add_location</i>
+                    <label for="location">Meeting point</label>
+                    <input type="text" id="coordsField" name="location" value="">
+                </div>
+            </div>
+            <div class="row col s6">
+                <div class="input-field col s12">
+                    <div id="map" class="set-bet-map"></div>
+                </div>
+            </div>
+            <div class="row col s12">
+                <button type="submit" class="btn waves-effect waves-light red col s2 offset-s5 z-depth-4" name="button">Create<i class="material-icons right">send</i></button>
+            </div>
+    </div>
+    <div class="col s4 offset-s4 center">
+        <hr>
+        <p>Manage your <a href="/profile">profile</a></p>
+    </div>
+</div>
+
+<script type="text/javascript">
+    initMap();
+
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+
+    google.maps.event.addListener(map, 'click', function(event){
+        // marker.setMap(null);
+        addMarker(map, event.latLng.toJSON());
+        $("input#coordsField").val(event.latLng.lat().toFixed(4) + ', ' + event.latLng.lng().toFixed(4));
+    });
+
+    function addMarker(map, coords){
+        new google.maps.Marker({
+            position: coords,
+            map: map
+        });
+    }
+
+</script>

@@ -1,0 +1,14 @@
+Issues:
+
+-Ampliar Schema de usuario
+	*Dinero
+	*Foto
+	*Apuestas
+-Mejorar Profile view
+-Crear Edit page
+	*Mostrar un form con los campos a modificar
+	*Guardar en database validando y redirect a /profile
+-Crear form para add money
+-Crear Schema para las apuestas
+-Crear view para apuestas con Maps y Live Results (APIs)
+-Add style
