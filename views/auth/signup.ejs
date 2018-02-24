@@ -1,24 +1,59 @@
-<div class="">
-    <h3>Sign up</h3>
+<div class="row">
+    <div class="col s4 offset-s4 center">
+        <img class="form-logo" src="/images/burning-red-logo.png" width="160px" alt="logo">
+    </div>
+    <div class="col s4 offset-s4 center">
+        <h3>Sign up</h3>
+    </div>
+    <% if (typeof(flash) != 'udefined' && flash.info) { %>
+        <div class="input-field col s6 offset-s3">
+            <%= flash.info %>
+        </div>
+    <% } %>
+    <div class="row">
+        <form class="" action="/signup" method="post">
+            <div class="row">
+                <div class="input-field col s6 offset-s3">
+                    <i class="material-icons prefix">account_circle</i>
+                    <label for="username">User's name</label>
+                    <input type="text" name="username" value="<%= typeof user != 'undefined' && user.username ? user.username : '' %>">
+                </div>
+                <div class="input-field col s6 offset-s3">
+                    <i class="material-icons prefix">email</i>
+                    <label for="email">E-mail</label>
+                    <input type="text" name="email" value="<%= typeof user != 'undefined' && user.email ? user.email : '' %>">
+                </div>
+                <div class="input-field col s6 offset-s3">
+                    <i class="material-icons prefix">vpn_key</i>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" value="<%= typeof user != 'undefined' && user.password ? user.password : '' %>">
+                </div>
+                <!-- <div class="switch col offset-s3">
+                    <label>
+                        Hide
+                        <input type="checkbox">
+                        <span class="lever"></span>
+                        Show
+                    </label>
+                </div> -->
+            </div>
+            <div class="row">
+                <button type="submit" class="btn waves-effect waves-light red col s2 offset-s5 z-depth-4" name="button">Signup <i class="material-icons right">send</i></button>
+            </div>
+        </form>
+        <form class="" action="/auth/fb" method="post">
+            <div class="row">
+                <button type="submit" class="btn waves-effect waves-light blue darken-3 col s2 offset-s5 z-depth-4" name="button">Signup with<i class="fa fa-facebook right"></i></button>
+            </div>
+        </form>
+        <form class="" action="/auth/google" method="post">
+            <div class="row">
+                <button type="submit" class="btn waves-effect waves-light grey darken-1 col s2 offset-s5 z-depth-4" name="button">Signup with<i class="fa fa-google right"></i></button>
+            </div>
+        </form>
+    </div>
+    <div class="col s4 offset-s4 center">
+        <hr>
+        <p>Already have an account? <a href="/login">Log in!</a></p>
+    </div>
 </div>
-<% if (typeof(flash) != 'udefined' && flash.info) { %>
-    <div class="">
-        <%= flash.info %>
-    </div>
-<% } %>
-<form class="" action="/signup" method="post">
-    <div class="">
-        <label for="username">User's name</label>
-        <input type="text" name="username" value="<%= typeof user != 'undefined' && user.username ? user.username : '' %>">
-    </div>
-    <div class="">
-        <label for="email">E-mail</label>
-        <input type="text" name="email" value="<%= typeof user != 'undefined' && user.email ? user.email : '' %>">
-    </div>
-    <div class="">
-        <label for="password">Password</label>
-        <input type="password" name="password" value="<%= typeof user != 'undefined' && user.password ? user.password : '' %>">
-    </div>
-    <button type="submit" name="button">Sign up</button>
-</form>
-<p>Already have an account? <a href="/login">Log in!</a></p>

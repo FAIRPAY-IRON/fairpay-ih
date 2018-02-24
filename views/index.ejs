@@ -1,13 +1,38 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <a href="/signup">Sign up here</a>
-    <a href="/login">Log in here</a>
-  </body>
-</html>
+<div class="row" id="cover">
+    <div class="welcome">
+        <img src="/images/burning-red-logo.png" alt="Logo">
+        <h3>Welcome to <%= title %></h3>
+    </div>
+    <div class="description">
+        <p>
+            <b style="font-size: 35px">Fairpay</b> is simply a social betting platform
+            designed to offer the user security and immediacy. With a FRONT-design
+            mounted on <a href="http://materializecss.com/">Materialize</a>, while to set
+            the BACK we have relied on <a href="https://www.mongodb.com/">Mongodb</a>
+            for databases and <a href="http://expressjs.com/">Express</a> to manage
+            <a href="https://nodejs.org/en/">Nodejs</a>.
+        </p>
+        <br>
+        <p>
+            In Fairpay you will enjoy the best existing computer security. We have
+            relied on <a href="https://www.npmjs.com/">NPM</a> packages such as Passport
+            and Bcrypt to make your account 'Julio-proof'. we have also incorporated
+            APIs such as Google Maps and APIFootball to improve the user experience.
+        </p>
+    </div>
+</div>
+
+<!-- *************************** animation **************************** -->
+
+<div class="ocean">
+  <div class="boat-animation">
+    <img alt="Wellen" src="//rostock-ahoi.de/assets/img/waves-rear.svg" class="waves waves--rear">
+    <div class="paperboat">
+      <div class="paperboat__sink">
+        <img alt="Papierboot" width="110" height="71" src="//rostock-ahoi.de/assets/img/paperboat.svg" class="paperboat__boat" id="paperboat">
+        <img alt="Papierflagge" width="32" height="29" src="//rostock-ahoi.de/assets/img/paperboat-flag.svg" class="paperboat__flag">
+      </div>
+    </div>
+    <img alt="Wellen" src="//rostock-ahoi.de/assets/img/waves-front.svg" class="waves waves--front">
+  </div>
+</div>

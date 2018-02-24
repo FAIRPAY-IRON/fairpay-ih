@@ -1,2 +1,57 @@
-<p>Welcome user</p>
-<button class="" type="button" name="logout"><a href="/logout">Logout</a></button>
+<div class="row profile">
+    <div class="col s4 offset-s4">
+        <div class="center">
+            <img src="<%= user.picture %>" class="circle col s8 offset-s2 profile-img" alt="Profile image">
+        </div>
+
+        <div class="center">
+            <h3><%= user.username %></h3>
+        </div>
+
+        <div class="center">
+            <h4>Current money: <%= user.money %> $</h4>
+        </div>
+
+        <hr>
+
+    </div>
+    <div class="center profile-btns col s6 offset-s3">
+        <button class="btn waves-effect waves-light green z-depth-4" type="button" name="edit"><a href="/createbet">Create bet</a></button>
+        <button class="btn waves-effect waves-light blue z-depth-4" type="button" name="findbets"><a href="/findbets">Find bets</a></button>
+        <button class="btn waves-effect waves-light yellow darken-3 z-depth-4" type="button" name="edit"><a href="/edit">Edit profile</a></button>
+        <button class="btn waves-effect waves-light red z-depth-4" type="button" name="logout"><a href="/logout">Logout</a></button>
+    </div>
+    <div class="center profile-btns col s6 offset-s3">
+        <button class="btn waves-effect waves-light grey z-depth-4 col s6 offset-s3" type="button" name="addMoney"><a href="/addMoney">Add money</a></button>
+    </div>
+
+    <div class="fixed-action-btn vertical">
+        <a class="btn-floating btn-large grey pulse">
+            <i class="large material-icons">touch_app</i>
+        </a>
+        <ul>
+            <li><a href="/createbet" class="btn-floating green tooltipped" data-position="left" data-delay="50" data-tooltip="Create bet"><i class="material-icons">create</i></a></li>
+            <li><a href="/findbets" class="btn-floating blue tooltipped" data-position="left" data-delay="50" data-tooltip="Find bet"><i class="material-icons">search</i></a></li>
+            <li><a href="/edit" class="btn-floating yellow darken-3 tooltipped" data-position="left" data-delay="50" data-tooltip="Edit profile"><i class="material-icons">tune</i></a></li>
+            <li><a href="/logout" class="btn-floating red tooltipped" data-position="left" data-delay="50" data-tooltip="Logout"><i class="material-icons">exit_to_app</i></a></li>
+        </ul>
+    </div>
+
+    <div class="my-bets input-field col s6 offset-s3">
+        <div class="input-field col s12">
+            <select onchange="location = this.value;">
+                <option value="" disabled selected>Choose one bet</option>
+                <% bets.forEach(bet => { %>
+                    <option value="/bet/<%= bet._id  %>"> <%= bet.betname %></option>
+                <% }) %>
+            </select>
+            <label>Your bets</label>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+</script>

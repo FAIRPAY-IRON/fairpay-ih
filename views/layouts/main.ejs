@@ -3,8 +3,40 @@
     <head>
         <meta charset="utf-8">
         <title>Fairpay</title>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmEs15WbxscjT5wAXL3r5Cw5w82H6iNp4" async defer></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <link rel="stylesheet" href="/stylesheets/paper-boat.css">
+        <link href="https://fonts.googleapis.com/css?family=Kavivanar" rel="stylesheet">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+        crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <script type="text/javascript" src="/javascripts/googlemaps.js"></script>
+        <script type="text/javascript" src="/javascripts/paperboat.js"></script>
     </head>
-    <body>
-        <%- body -%>
+    <body class="grey lighten-4">
+        <nav class="nav-bar">
+            <div class="nav-wrapper grey lighten-1">
+                <a href="/" class="brand-logo"><img src="/images/burning-red-logo.png" alt="Logo"></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="/signup">Sign-up</a></li>
+                    <li><a href="/login">Log-in</a></li>
+                    <li><a href="/odds">Odds</a></li>
+                    <li><a href="#">About-us</a></li>
+                    <% if(user) { %>
+                        <li id="userNavBtn"><a href="/profile"><%= user.username %> </a></li>
+                        <img src="<%= user.picture %>" class="circle" alt="">
+                    <% } %>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <%- body -%>
+        </div>
+
     </body>
 </html>

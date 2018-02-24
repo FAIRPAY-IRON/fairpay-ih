@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="center checkout-header">
+        <h1>Checkout</h1>
+    </div>
+    <div class="col s12">
+        <form class="" action="/pay" method="post">
+            <div class="input-field col s2 offset-s5">
+                <i class="material-icons prefix">attach_money</i>
+                <label for="money">Amount to add: </label>
+                <input class="center" type="number" name="money" value="20" max="20" min="0">
+            </div>
+            <div class="input-field col s6 offset-s3">
+                <i class="material-icons prefix">perm_identity</i>
+                <label for="name">Card Holder Name: </label>
+                <input type="text" name="" value="">
+            </div>
+            <div class="input-field col s6 offset-s3">
+                <i class="material-icons prefix">credit_card</i>
+                <label for="name">Credit Card Number: </label>
+                <input type="text" name="" value="">
+            </div>
+            <div class="input-field col s3 offset-s3">
+                <i class="material-icons prefix">date_range</i>
+                <label for="name">Expiration Month: </label>
+                <input type="text" name="" value="">
+            </div>
+            <div class="input-field col s3">
+                <i class="material-icons prefix">date_range</i>
+                <label for="name">Expiration Year: </label>
+                <input type="text" name="" value="">
+            </div>
+            <div class="input-field col s1 offset-s3">
+                <i class="material-icons prefix">security</i>
+                <label for="name">CVC: </label>
+                <input type="text" name="" value="">
+            </div>
+            <div class="row col s12">
+                <button type="submit" class="btn waves-effect waves-light red col s2 offset-s5 z-depth-4" name="button">Add money<i class="material-icons right">send</i></button>
+            </div>
+        </form>
+    </div>
+</div>

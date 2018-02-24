@@ -14,10 +14,12 @@ const flash = require('connect-flash');
 
 require('./configs/db.config');
 require('./configs/passport.config').setup(passport);
+require('./configs/paypal.config');
 
 const index = require('./routes/index.routes');
 const auth = require('./routes/auth.routes');
-// const users = require('./routes/users.routes');
+const users = require('./routes/users.routes');
+const bets = require('./routes/bets.routes');
 
 const app = express();
 
@@ -52,9 +54,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
+app.use((req, res, next) => {
+    res.locals.user = req.user;
+    next();
+});
+
 app.use('/', index);
 app.use('/', auth);
-// app.use('/', users);
+app.use('/', users);
+app.use('/', bets);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
