@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 
 const betSchema = new mongoose.Schema({
+    id: {
+        type: String
+    },
     betname: {
         type: String
     },

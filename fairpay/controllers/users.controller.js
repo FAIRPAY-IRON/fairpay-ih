@@ -1,13 +1,22 @@
 // const mongoose = require('mongoose');
 const User = require('../models/user.model');
+const Bet = require('../models/bet.model');
 // const session = require('express-session');
 
 
 module.exports.profile = (req, res) => {
-    res.render('users/profile', {
-        user: res.locals.user,
-        flash: req.flash()
-    });
+    Bet.find({users: req.user._id})
+        .then(bets => {
+            res.render('users/profile', {
+                user: res.locals.user,
+                flash: req.flash(),
+                bets: bets || [],
+            });
+        })
+        .catch(error => {
+            console.log(error);
+        });
+
 };
 
 module.exports.edit = (req, res) => {
@@ -59,7 +68,6 @@ module.exports.doEdit = (req, res) => {
             })
             .catch(err => {
                 console.log(err);
-                //Error hanlder
             });
     }
 };

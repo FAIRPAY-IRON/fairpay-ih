@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const betsController = require('../controllers/bets.controller');
-const checkoutController = require('../controllers/checkout.controller');
 
 router.get('/findbets', betsController.findBets);
 

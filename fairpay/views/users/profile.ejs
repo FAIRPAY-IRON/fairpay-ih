@@ -36,4 +36,22 @@
             <li><a href="/logout" class="btn-floating red tooltipped" data-position="left" data-delay="50" data-tooltip="Logout"><i class="material-icons">exit_to_app</i></a></li>
         </ul>
     </div>
+
+    <div class="my-bets input-field col s6 offset-s3">
+        <div class="input-field col s12">
+            <select onchange="location = this.value;">
+                <option value="" disabled selected>Choose one bet</option>
+                <% bets.forEach(bet => { %>
+                    <option value="/bet/<%= bet._id  %>"> <%= bet.betname %></option>
+                <% }) %>
+            </select>
+            <label>Your bets</label>
+        </div>
+    </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('select').material_select();
+    });
+</script>

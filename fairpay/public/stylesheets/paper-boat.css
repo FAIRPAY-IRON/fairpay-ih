@@ -1,17 +1,18 @@
 body {
   background-color: #1a1a1a;
 }
-
 .ocean {
   position: relative;
-  height: 100vh;
-}
-
+  height: 30vh;
+  width: 100vw;
+  margin-left: -25%;
+  padding-left: 0;
+  z-index: 10000000;
+  }
 .ocean {
   text-align: center;
   color: #8a8a8a;
 }
-
 .ocean__nav {
   padding: 4rem 0 1rem;
   text-align: center;
@@ -39,7 +40,6 @@ body {
 .ocean__nav li a:active {
   text-decoration: underline;
 }
-
 .boat-animation {
   height: 335px;
   width: 100%;
@@ -49,7 +49,6 @@ body {
   right: 0;
   overflow: hidden;
 }
-
 .waves--front {
   filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=0, Color='#444')";
   -webkit-filter: url("#drop-shadow");
@@ -60,7 +59,6 @@ body {
           animation-name: sway--front;
   z-index: 3;
 }
-
 .waves--rear {
   filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=0, Color='#444')";
   -webkit-filter: url("#drop-shadow");
@@ -71,7 +69,6 @@ body {
           animation-name: sway--rear;
   z-index: 1;
 }
-
 .waves {
   -webkit-animation-duration: 5s;
           animation-duration: 5s;
@@ -89,7 +86,6 @@ body {
   pointer-events: none;
   width: 600px;
 }
-
 .paperboat {
   position: absolute;
   height: auto;
@@ -106,11 +102,9 @@ body {
   bottom: 54px;
   left: calc(85px + (100vw - 320px) * 0.3);
 }
-
 .paperboat:hover {
   cursor: pointer;
 }
-
 .paperboat__flag {
   position: absolute;
   top: 1px;
@@ -146,7 +140,6 @@ body {
     width: 36px;
   }
 }
-
 .paperboat.paperboat--sos:hover {
   cursor: default;
 }
@@ -176,7 +169,6 @@ body {
   -webkit-animation-duration: 0.3s;
           animation-duration: 0.3s;
 }
-
 @-webkit-keyframes hoist {
   0% {
     -webkit-transform: translateY(130%) rotate(0);
@@ -189,7 +181,6 @@ body {
             transform: translateY(0) rotate(10deg);
   }
 }
-
 @keyframes hoist {
   0% {
     -webkit-transform: translateY(130%) rotate(0);
@@ -250,13 +241,11 @@ body {
   .waves {
     width: 1000px;
   }
-
   .paperboat {
     width: 100px;
     bottom: 110px;
     left: calc(90px + (100vw - 320px) * 0.3);
   }
-
   @-webkit-keyframes swim {
     0% {
       -webkit-transform-origin: center;
@@ -277,7 +266,6 @@ body {
               transform: rotate3d(0, 0, 1, -8deg) translateY(10px);
     }
   }
-
   @keyframes swim {
     0% {
       -webkit-transform-origin: center;
@@ -312,7 +300,6 @@ body {
     -webkit-filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.1));
             filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.1));
   }
-
   .waves--rear {
     filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=0, Color='#444')";
     -webkit-filter: url("#drop-shadow");
@@ -320,17 +307,14 @@ body {
     -webkit-filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
             filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
   }
-
   .waves {
     width: 1500px;
   }
-
   .paperboat {
     width: 110px;
     bottom: 162px;
     left: calc(100px + (100vw - 320px) * 0.4);
   }
-
   @-webkit-keyframes swim {
     0% {
       -webkit-transform-origin: center;
@@ -351,7 +335,6 @@ body {
               transform: rotate3d(0, 0, 1, -8deg) translateY(0px);
     }
   }
-
   @keyframes swim {
     0% {
       -webkit-transform-origin: center;
@@ -377,7 +360,6 @@ body {
   .waves {
     width: 1800px;
   }
-
   .paperboat {
     width: 130px;
     bottom: 194px;
@@ -387,11 +369,10 @@ body {
   .waves {
     width: 2000px;
   }
-
   .paperboat {
     width: 130px;
     bottom: 215px;
-    left: calc(100px + (100vw - 320px) * 0.4);
+    left: calc(450px + (10vw - 320px) * 0.4);
   }
 }
 @media (min-width: 1700px) {
@@ -399,7 +380,6 @@ body {
     width: 2300px;
     bottom: -33px;
   }
-
   .waves--front {
     filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=0, Color='#444')";
     -webkit-filter: url("#drop-shadow");
@@ -407,7 +387,6 @@ body {
     -webkit-filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.01));
             filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.01));
   }
-
   .waves--rear {
     filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=0, Color='#444')";
     -webkit-filter: url("#drop-shadow");
@@ -421,13 +400,11 @@ body {
     width: 2600px;
     bottom: -70px;
   }
-
   .paperboat {
     width: 135px;
     bottom: 212px;
     left: calc(100px + (100vw - 320px) * 0.4);
   }
-
   @-webkit-keyframes swim {
     0% {
       -webkit-transform-origin: center;
@@ -448,7 +425,6 @@ body {
               transform: rotate3d(0, 0, 1, -11deg) translateY(-1px);
     }
   }
-
   @keyframes swim {
     0% {
       -webkit-transform-origin: center;
@@ -475,13 +451,11 @@ body {
     width: 3000px;
     bottom: -113px;
   }
-
   .paperboat {
     width: 135px;
     bottom: 214px;
     left: calc(100px + (100vw - 320px) * 0.4);
   }
-
   @-webkit-keyframes swim {
     0% {
       -webkit-transform-origin: center;
@@ -502,7 +476,6 @@ body {
               transform: rotate3d(0, 0, 1, -11deg) translateY(-1px);
     }
   }
-
   @keyframes swim {
     0% {
       -webkit-transform-origin: center;
@@ -646,3 +619,6 @@ body {
             transform: translateX(calc(-54% + 3%));
   }
 }
+
+
+Add Comment

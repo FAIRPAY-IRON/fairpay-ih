@@ -24,8 +24,15 @@ module.exports.createBet = (req, res) => {
 };
 
 module.exports.showBet = (req, res) => {
-
-    res.render('bets/bet');
+    Bet.find({users: req.user._id})
+        .then(data => {
+            console.log(data);
+            res.render('bets/bet', {
+                bet,
+                evnt: event,
+                user: req.user
+            });
+        })
 };
 
 module.exports.saveBet = (req, res, next) => {
@@ -58,6 +65,7 @@ module.exports.saveBet = (req, res, next) => {
                 };
 
                 const bet = new Bet({
+                    id: betId,
                     betname,
                     description,
                     money,
@@ -68,7 +76,7 @@ module.exports.saveBet = (req, res, next) => {
                 bet.save()
                     .then(() => {
                         res.render('bets/bet', {
-                            bet,
+                            bet: bet,
                             evnt: event,
                             user: req.user
                         });
