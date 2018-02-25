@@ -9,6 +9,10 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
         <link rel="stylesheet" href="/stylesheets/style.css">
         <link rel="stylesheet" href="/stylesheets/paper-boat.css">
+        <link rel="stylesheet" href="/stylesheets/circles.css">
+        <link rel="stylesheet" href="/stylesheets/circles-and-dots.css">
+        <link rel="stylesheet" href="/stylesheets/boobles.css">
+        <link rel="stylesheet" href="/stylesheets/typewriter.css">
         <link href="https://fonts.googleapis.com/css?family=Kavivanar" rel="stylesheet">
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
@@ -17,15 +21,15 @@
         <script type="text/javascript" src="/javascripts/googlemaps.js"></script>
         <script type="text/javascript" src="/javascripts/paperboat.js"></script>
     </head>
-    <body class="grey lighten-4">
+    <body class="grey lighten-1">
         <nav class="nav-bar">
-            <div class="nav-wrapper grey lighten-1">
+            <div class="nav-wrapper grey">
                 <a href="/" class="brand-logo"><img src="/images/burning-red-logo.png" alt="Logo"></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="/signup">Sign-up</a></li>
                     <li><a href="/login">Log-in</a></li>
                     <li><a href="/odds">Odds</a></li>
-                    <li><a href="#">About-us</a></li>
+                    <li><a href="/aboutus">About-us</a></li>
                     <% if(user) { %>
                         <li id="userNavBtn"><a href="/profile"><%= user.username %> </a></li>
                         <img src="<%= user.picture %>" class="circle" alt="">

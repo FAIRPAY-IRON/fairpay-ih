@@ -79,7 +79,7 @@ a {
 }
 
 .profile-img {
-    margin-bottom: 2vh;
+    margin-bottom: 5vh;
     overflow: hidden;
     width: 10px;
 }
@@ -137,4 +137,9 @@ a {
 
 #add-money-form {
     margin-top: 10vh;
+}
+
+.about-us-text {
+    margin: 15vh auto -5vh;
+    font-size: 1.5rem;
 }

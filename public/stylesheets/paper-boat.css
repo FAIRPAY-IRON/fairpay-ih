@@ -7,7 +7,7 @@ body {
   width: 100vw;
   margin-left: -25%;
   padding-left: 0;
-  z-index: 10000000;
+  z-index: 10;
   }
 .ocean {
   text-align: center;
@@ -619,6 +619,3 @@ body {
             transform: translateX(calc(-54% + 3%));
   }
 }
-
-
-Add Comment

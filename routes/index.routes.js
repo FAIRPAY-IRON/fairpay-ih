@@ -6,4 +6,9 @@ router.get('/', function(req, res) {
   res.render('index', {title: 'Fairpay', user: req.user});
 });
 
+/* GET About Us page. */
+router.get('/aboutus', function(req, res) {
+  res.render('about-us');
+});
+
 module.exports = router;
