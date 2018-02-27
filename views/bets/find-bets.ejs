@@ -1,5 +1,15 @@
-<div>
-    <div id="map" class="finder-map"></div>
+<div class="row">
+    <div class="collection col s4 bet-finder-list grey lighten-2">
+        <div class="bets-finder-title center">
+            <h4>-Bets available for this week-</h4>
+        </div>
+        <% for(let i = 0; i < bets.length; i++) { %>
+            <a href="/bet/<%= bets[i].id %>" class="collection-item" style="color: rgb(107, 107, 107);"><span class="badge" style="color: red;"><%= bets[i].money %> $</span><%= bets[i].betname %></a>
+        <% } %>
+    </div>
+    <div class="bet-finder-map col s8">
+        <div id="map" class="finder-map"></div>
+    </div>
 </div>
 
 <script type="text/javascript">

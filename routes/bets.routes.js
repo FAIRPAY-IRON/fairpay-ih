@@ -8,7 +8,7 @@ router.get('/createbet', betsController.createBet);
 
 router.post('/createbet', betsController.saveBet);
 
-router.get('/bet', betsController.showBet);
+router.get('/bet/:id', betsController.showBet);
 
 router.get('/odds', betsController.odds);
 

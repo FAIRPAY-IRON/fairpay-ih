@@ -24,15 +24,23 @@ module.exports.createBet = (req, res) => {
 };
 
 module.exports.showBet = (req, res) => {
-    Bet.find({users: req.user._id})
-        .then(data => {
-            console.log(data);
-            res.render('bets/bet', {
-                bet,
-                evnt: event,
-                user: req.user
+    const identifier = req.params.id;
+    Bet.find({id: identifier})
+        .then(bet => {
+            footballApi.getEventsData('date', (error, data) => {
+                if (error) {
+                    next(error);
+                } else {
+                    const betId = bet[0].id;
+                    const event = data.find(e => e.match_id === betId);
+                    res.render('bets/bet', {
+                        bet: bet,
+                        evnt: event,
+                        user: req.user
+                    });
+                }
             });
-        })
+        });
 };
 
 module.exports.saveBet = (req, res, next) => {

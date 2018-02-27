@@ -48,19 +48,29 @@ a {
     display: flex;
     justify-content: space-around;
     margin-top: 15vh;
+    margin-bottom: 10vh;
 }
 
 #cover .welcome h3 {
     text-align: center;
 }
 
+#cover .welcome {
+    margin-left: 5vw;
+}
+
+#cover .welcome img {
+    margin-top: 5vh;
+}
+
 #cover .description {
     width: 35%;
     margin-top: 50px;
+    margin-left: 5vw;
 }
 
 #cover .description p {
-    font-size: 25px;
+    font-size: 22px;
     text-align: justify;
 }
 
@@ -84,19 +94,9 @@ a {
     width: 10px;
 }
 
-#create-bet {
-    /* display: flex;
-    justify-content: space-between; */
-}
-
-#create-bet .row:first-child {
-}
-
-#create-bet .row:nth-child(2) {
-}
-
 .set-bet-map {
     margin: 0;
+    height: 370px;
 }
 
 .bet-header {
@@ -142,4 +142,12 @@ a {
 .about-us-text {
     margin: 15vh auto -5vh;
     font-size: 1.5rem;
+}
+
+.bets-finder-title h4 {
+    font-size: 1.5em;
+}
+
+.bet-finder-list {
+    margin-top: 2vh;
 }

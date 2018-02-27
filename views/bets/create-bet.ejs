@@ -9,7 +9,7 @@
         <form class="col s12" id="create-bet" action="/createbet" method="post">
             <div class="row col s6">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix">create</i>
+                    <i class="material-icons prefix">touch_app</i>
                     <select name='match' id="match">
                       <optgroup label="Netherlands - Eredivisie">
                           <% for(let i = 0; i < eventsObj.length; i++) { %>
@@ -27,6 +27,15 @@
                       </optgroup>
                     </select>
                     <label>Select bet</label>
+                </div>
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">favorite</i>
+                    <select name='team' id="team">
+                        <option value="" disabled selected>Choose your team</option>
+                        <option value="1">Local ( the one on the left )</option>
+                        <option value="2">Away ( the one on the right )</option>
+                    </select>
+                    <label>Select your team</label>
                 </div>
                 <div class="input-field col s12">
                     <i class="material-icons prefix">description</i>

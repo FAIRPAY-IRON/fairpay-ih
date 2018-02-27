@@ -25,15 +25,15 @@
                 <img src="<%= user.picture %>" class="circle col s4 offset-s4 profile-img" alt="Profile image">
             </div>
 
-            <div class="center">
+            <div class="center col s12">
                 <h3><%= user.username %></h3>
             </div>
 
-            <div class="center">
+            <div class="center col s12">
                 <h4>Current money: <%= user.money %> $</h4>
             </div>
 
-            <hr>
+            <hr class="col s12">
 
         </div>
         <div class="center profile-btns col s6 offset-s3">
@@ -63,12 +63,12 @@
                 <select onchange="location = this.value;">
                     <option value="" disabled selected>Choose one bet</option>
                     <% bets.forEach(bet => { %>
-                        <option value="/bet/<%= bet._id  %>"> <%= bet.betname %></option>
-                        <% }) %>
-                    </select>
-                    <label>Your bets</label>
-                </div>
+                        <option value="/bet/<%= bet.id  %>"> <%= bet.betname %></option>
+                    <% }) %>
+                </select>
+                <label>Your bets</label>
             </div>
+        </div>
     </div>
 </div>
 

@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="/stylesheets/circles-and-dots.css">
         <link rel="stylesheet" href="/stylesheets/boobles.css">
         <link rel="stylesheet" href="/stylesheets/typewriter.css">
+        <link rel="stylesheet" href="/stylesheets/dotnet.css">
         <link href="https://fonts.googleapis.com/css?family=Kavivanar" rel="stylesheet">
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
@@ -32,7 +33,7 @@
                     <li><a href="/aboutus">About-us</a></li>
                     <% if(user) { %>
                         <li id="userNavBtn"><a href="/profile"><%= user.username %> </a></li>
-                        <img src="<%= user.picture %>" class="circle" alt="">
+                        <img src="<%= user.picture %>" class="circle" alt="profile-pic" height="50" width="auto">
                     <% } %>
                 </ul>
             </div>
