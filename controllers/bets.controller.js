@@ -3,7 +3,7 @@ const Bet = require('../models/bet.model');
 const footballApi = require('../services/football-api.service');
 
 module.exports.findBets = (req, res) => {
-    Bet.find()
+    Bet.find({users: {$ne: req.user._id}})
         .then(bets => {
             res.render('bets/find-bets', {bets});
         }).catch(() => {
@@ -34,7 +34,7 @@ module.exports.showBet = (req, res) => {
                     const betId = bet[0].id;
                     const event = data.find(e => e.match_id === betId);
                     res.render('bets/bet', {
-                        bet: bet,
+                        bet: bet[0],
                         evnt: event,
                         user: req.user
                     });
@@ -64,6 +64,7 @@ module.exports.saveBet = (req, res, next) => {
                 const userId = req.user._id;
                 const betId = req.body.match;
                 const location = req.body.location.split(',');
+                const team = req.body.team;
 
                 const event = data.find(e => e.match_id === betId);
                 const betname = `${event.match_hometeam_name} vs ${event.match_awayteam_name}`;
@@ -75,6 +76,7 @@ module.exports.saveBet = (req, res, next) => {
                 const bet = new Bet({
                     id: betId,
                     betname,
+                    team,
                     description,
                     money,
                     users: userId,

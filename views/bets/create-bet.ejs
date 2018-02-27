@@ -11,16 +11,16 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix">touch_app</i>
                     <select name='match' id="match">
-                      <optgroup label="Netherlands - Eredivisie">
+                      <optgroup label="England - Premier League">
                           <% for(let i = 0; i < eventsObj.length; i++) { %>
-                                <% if(eventsObj[i].country_name == 'Netherlands') { %>
+                                <% if(eventsObj[i].country_name == 'England') { %>
                                     <option value="<%= eventsObj[i].match_id %>"><%= eventsObj[i].match_hometeam_name %> - <%= eventsObj[i].match_awayteam_name %></option>
                                 <% } %>
                           <% } %>
                       </optgroup>
-                      <optgroup label="Turkey - Super Lig">
+                      <optgroup label="France - Ligue 1">
                           <% for(let i = 0; i < eventsObj.length; i++) { %>
-                                <% if(eventsObj[i].country_name == 'Turkey') { %>
+                                <% if(eventsObj[i].country_name == 'France') { %>
                                     <option value="<%= eventsObj[i].match_id %>"><%= eventsObj[i].match_hometeam_name %> - <%= eventsObj[i].match_awayteam_name %></option>
                                 <% } %>
                           <% } %>
@@ -32,8 +32,8 @@
                     <i class="material-icons prefix">favorite</i>
                     <select name='team' id="team">
                         <option value="" disabled selected>Choose your team</option>
-                        <option value="1">Local ( the one on the left )</option>
-                        <option value="2">Away ( the one on the right )</option>
+                        <option value="home">Home ( the one on the left )</option>
+                        <option value="away">Away ( the one on the right )</option>
                     </select>
                     <label>Select your team</label>
                 </div>

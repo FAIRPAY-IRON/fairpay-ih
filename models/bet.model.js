@@ -7,6 +7,11 @@ const betSchema = new mongoose.Schema({
     betname: {
         type: String
     },
+    team: {
+        type: String,
+        enum: ['home', 'away'],
+        default: 'home'
+    },
     description: {
         type: String,
         required: [true, 'Description required']

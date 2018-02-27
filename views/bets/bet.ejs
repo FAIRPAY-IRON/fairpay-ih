@@ -21,8 +21,13 @@
                 <h1 class="hometeam_score"><%= evnt.match_hometeam_score %></h1>
                 <hr>
                 <div class="left-player">
-                    <h5><%= user.username %></h5>
-                    <h6><%= user.money %> $</h6>
+                    <% if (bet.team === 'home') { %>
+                        <h5><%= user.username %></h5>
+                        <h6><%= bet.money %> $</h6>
+                    <% } else { %>
+                        <h5>???</h5>
+                        <h6>??? $</h6>
+                    <% } %>
                 </div>
             </div>
             <div class="col s4 center">
@@ -36,8 +41,13 @@
                 <h1 class="awayteam_score"><%= evnt.match_awayteam_score %></h1>
                 <hr>
                 <div class="right-player">
-                    <h5>???</h5>
-                    <h6>??? $</h6>
+                    <% if (bet.team === 'home') { %>
+                        <h5>???</h5>
+                        <h6>??? $</h6>
+                    <% } else { %>
+                        <h5><%= user.username %></h5>
+                        <h6><%= bet.money %> $</h6>
+                    <% } %>
                 </div>
             </div>
         </div>
@@ -48,6 +58,12 @@
             <div id="map" class="bet-map"></div>
         </div>
     </div>
+
+    <% if (bet.users[0] !== user._id) { %>
+        <div class="col s4 offset-s4 center">
+            <button class="btn waves-effect waves-light btn-large red" type="button" name="button"><a href="#">JOIN BET</a></button>
+        </div>
+    <% } %>
 </div>
 
 <script type="text/javascript">
