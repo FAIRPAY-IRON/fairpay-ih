@@ -19,7 +19,7 @@ Fairpay is simply a social betting platform for football lovers, designed to off
 
 In Fairpay you will enjoy the best existing computer security. We have relied on NPM packages such as Passport and Bcrypt to make your account 'hacker-proof'. we have also incorporated APIs such as Google Maps and APIFootball to improve the user experience.
 
-## There is a little boat :wink: :wink:
+There is a little boat, try to click on it! :wink: :wink:
 
   ![Boat](http://res.cloudinary.com/dlmrvaeyh/image/upload/v1525385990/boat.png)
   
