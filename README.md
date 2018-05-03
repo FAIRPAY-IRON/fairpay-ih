@@ -1,2 +1,28 @@
-# fairpay-ih
-Module 2 project
+![FairPay Logo](http://res.cloudinary.com/dlmrvaeyh/image/upload/c_scale,w_293/v1525384930/burning-red-logo.png)
+# FairPay
+
+## Techs
+
+Some of the tools I've used are:
+
+- Node.js
+- Express
+- Mongodb
+- Materialize
+- Passport & Bcrypt
+- PayPal Payments
+- Different APIs
+
+## What is it about?
+
+Fairpay is simply a social betting platform for football lovers, designed to offer the user security and immediacy. With a FRONT-design mounted on Materialize, while to set the BACK we have relied on Mongodb for databases and Express to manage Nodejs.
+
+In Fairpay you will enjoy the best existing computer security. We have relied on NPM packages such as Passport and Bcrypt to make your account 'hacker-proof'. we have also incorporated APIs such as Google Maps and APIFootball to improve the user experience.
+
+## There is a little boat :wink: :wink:
+
+  ![Boat](http://res.cloudinary.com/dlmrvaeyh/image/upload/v1525385990/boat.png)
+  
+## I wanna see it!!!
+
+[FairPay App](http://fair-pay.herokuapp.com/)
