@@ -10,8 +10,10 @@ Some of the tools I've used are:
 - Mongodb
 - Materialize
 - Passport & Bcrypt
-- PayPal Payments
-- Different APIs
+  > Google & Facebook authentications
+- PayPal API Payments
+- Google Maps API
+- APIFootball
 
 ## What is it about?
 
