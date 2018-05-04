@@ -19,7 +19,7 @@ Some of the tools I've used are:
 
 Fairpay is simply a social betting platform for football lovers, designed to offer the user security and immediacy. With a FRONT-design mounted on Materialize, while to set the BACK we have relied on Mongodb for databases and Express to manage Nodejs.
 
-In Fairpay you will enjoy the best existing computer security. We have relied on NPM packages such as Passport and Bcrypt to make your account 'hacker-proof'. we have also incorporated APIs such as Google Maps and APIFootball to improve the user experience.
+In Fairpay you will enjoy the best existing computer security. We have relied on NPM packages such as Passport and Bcrypt to make your account 'hacker-proof'. we have also incorporated APIs such as PayPal, Google Maps and APIFootball to improve the user experience.
 
 There is a little boat, try to click on it! :wink: :wink:
 
