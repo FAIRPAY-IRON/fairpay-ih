@@ -5,7 +5,7 @@
 
 Some of the tools I've used are:
 
->>>- Node.js
+- Node.js
 - Express
 - Mongodb
 - Materialize
