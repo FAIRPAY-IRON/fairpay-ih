@@ -23,6 +23,6 @@ There is a little boat, try to click on it! :wink: :wink:
 
   ![Boat](http://res.cloudinary.com/dlmrvaeyh/image/upload/v1525385990/boat.png)
   
-## I wanna see it!!!
+## Wanna see it ???
 
 [FairPay App](http://fair-pay.herokuapp.com/)
