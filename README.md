@@ -10,7 +10,7 @@ Some of the tools I've used are:
 - Mongodb
 - Materialize
 - Passport & Bcrypt
-  > Google & Facebook authentications
+ > Google, Facebook & Local authentications
 - PayPal API Payments
 - Google Maps API
 - APIFootball
