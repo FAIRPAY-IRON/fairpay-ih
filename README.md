@@ -5,12 +5,12 @@
 
 Some of the tools I've used are:
 
-- Node.js
+>>>- Node.js
 - Express
 - Mongodb
 - Materialize
 - Passport & Bcrypt
- > Google, Facebook & Local authentications
+  > Google, Facebook & Local authentications
 - PayPal API Payments
 - Google Maps API
 - APIFootball
